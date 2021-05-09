@@ -1,0 +1,47 @@
+
+
+  <section>
+    <div class="example-button-row">
+        <button mat-raised-button color="primary" (click)="view()">View</button>
+        <button mat-raised-button color="primary"  (click)="add()">Add</button>
+        <button mat-raised-button color="primary"  (click)="remove()">Remove</button>
+        <button mat-raised-button color="primary" (click)="edit()">Edit</button>
+    </div>
+    
+
+</section>
+<div>
+    <locations *ngIf="locationIsSelected" (onSelectLocation)="onSelectLocation($event)"></locations>
+    <categories *ngIf="!locationIsSelected" (onSelectCategory)="onSelectCategory($event)"></categories>
+
+    <ng-template #addLocation>
+        <add-location [modalRef]="modalRef">
+        </add-location>
+    </ng-template>
+    <ng-template #addCategory>
+        <add-category [modalRef]="modalRef">
+        </add-category>
+    </ng-template>
+
+    <ng-template #editCategory>
+        <edit-category [modalRef]="modalRef" [oldCategory]="selectedCategory">
+        </edit-category>
+    </ng-template>
+    <ng-template #editLocation>
+        <edit-location [modalRef]="modalRef" [oldLocation]="selectedLocation">
+        </edit-location>
+    </ng-template>
+
+    <ng-template #showCategory>
+        <category [modalRef]="modalRef" [category]="selectedCategory">
+        </category>
+    </ng-template>
+    <ng-template #showLocation>
+        <location [modalRef]="modalRef" [location]="selectedLocation">
+        </location>
+    </ng-template>
+</div>
+<section>
+    <button class="md-button" (click)="showLocations()">Show locations</button>
+    <button class="md-button" (click)="showCategories()">Show categories</button>
+</section>

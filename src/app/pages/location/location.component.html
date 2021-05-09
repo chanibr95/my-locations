@@ -1,0 +1,12 @@
+<h2>View location</h2>
+<p>Category: {{location?.Category?.Name}}</p>
+
+<p>Name: {{location?.Name}}</p>
+
+<p>Address: {{location?.Address}}</p>
+<p></p>
+<p>Coordinate: {{location?.Coordinates?.x}}- {{location?.Coordinates?.y}}</p>
+<button (click)="map()"
+          >Map</button>
+<button (click)="close()"
+          >Close</button>

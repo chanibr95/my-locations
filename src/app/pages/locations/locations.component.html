@@ -1,0 +1,17 @@
+<h2>Locations</h2>
+<button mat-raised-button color="primary" (click)="Sort()">Sort by alphabetical</button>
+<button mat-raised-button color="primary" (click)="Group()">Group by category</button>
+<button mat-raised-button color="primary" (click)="Ungroup()">Ungroup by category</button>
+<ul class="Location" *ngIf="!isGrouped">
+    <li *ngFor="let location of locations" (click)="onSelect(location)">
+        <span class="badge">{{location.Name}}</span> {{location.Address}}
+    </li>
+</ul>
+
+<ul *ngIf="isGrouped">
+    <li *ngFor="let cat of categories">
+        <span >Category {{cat.name}}: </span>
+        <p *ngFor="let loc of cat.locations" >{{loc.Name}} {{loc.Address}}</p> 
+        
+    </li>
+</ul>

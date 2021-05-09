@@ -1,0 +1,16 @@
+<h2>Edit location</h2>
+<p>Choose category</p>
+<ng-select class="select" (change)="categorySelected($event)" [(ngModel)]="selectedCategory">
+    <ng-option *ngFor="let category of categories" [value]="category">{{category.Name}}
+    </ng-option>
+</ng-select>
+<p>Name:</p>
+<input [(ngModel)]="location.Name" placeholder="Add name" type="text">
+<p>Address:</p>
+<input [(ngModel)]="location.Address" placeholder="Add address" type="text">
+<p>Coordinate:</p>
+<input [(ngModel)]="location.Coordinates.x" placeholder="Add point X " type="text">
+<input [(ngModel)]="location.Coordinates.y" placeholder="Add point Y " type="text">
+                      <p *ngIf="isNotValidate">Fill all fields!</p>
+<button (click)="edit()"
+          >Ok</button>

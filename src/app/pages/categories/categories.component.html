@@ -1,0 +1,6 @@
+<h2>Categories</h2>
+<ul class="Category">
+    <li *ngFor="let category of categories" (click)="onSelect(category)">
+        <span class="badge">{{category.Name}}</span>
+    </li>
+</ul>

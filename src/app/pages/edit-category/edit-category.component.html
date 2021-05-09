@@ -1,0 +1,6 @@
+<h2>Edit category</h2>
+
+<p>Name:</p>
+<input [(ngModel)]="category.Name" placeholder="Add name" type="text">
+<p *ngIf="isNotValidate">Fill all fields!</p>
+<button (click)="edit()">Ok</button>
